@@ -1,0 +1,17 @@
+// Создать массив из 7 пользователей (пользователь - объект). 
+// У каждого пользователя должно быть свойство ‘groups’ которое является массивом. 
+// Это список групп в которых состоит пользователь (прим. [‘admins’, ‘moderators’, ‘content-manager’,....]). 
+// Для пользователей в массиве некоторые группы должны повторятся некоторые нет. 
+// Создать функцию которая принимает массив этих пользователей и возвращает унифицированный массив всех групп у пользователей в массиве.  
+
+
+
+const user = [
+	{name:"user1", groups:['admins','team-leader','product-manager','moderators','content-manager','admins']},
+	{name:"user2", groups:['admins','team-leader','product-manager','moderators','content-manager','team-leader']},
+	{name:"user2", groups:['admins','team-leader','product-manager','moderators','content-manager','product-manager']},
+	{name:"user2", groups:['admins','team-leader','product-manager','moderators','content-manager','moderators']},
+	{name:"user2", groups:['admins','team-leader','product-manager','moderators','content-manager','content-manager']},
+	{name:"user2", groups:['admins','team-leader','product-manager','moderators','admins','team-leader']},
+	{name:"user2", groups:['admins','team-leader','product-manager','product-manager','content-manager','team-leader']},
+]

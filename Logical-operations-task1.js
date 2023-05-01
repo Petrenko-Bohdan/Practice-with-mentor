@@ -4,9 +4,9 @@
 
 
 
-function sum(num){
+function sum(num){{
 	if(typeof num !== 'number')
-		throw new Error('It is not number');
+		throw new Error('It is not number')};
 
 	const number = num
 	let result = 1;
