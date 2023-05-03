@@ -26,13 +26,7 @@
 // console.log(unique(user));
 
 
-// for (let i = 0; i < user.length; i++) {
-// 	function unique(user[i].groups){
-// 		return Array.from(new Set(user[i].groups));
-// 	}
-// }
 
-// console.log(user[i].groups);
 
 
 const user = {name:'user1', groups:['admins','team-leader','product-manager','moderators','content-manager','admins']}
