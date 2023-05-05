@@ -26,9 +26,9 @@ class Product {
 
 	typeOfCurrency(currency){
 		if (currency === 'USA'){
-			return  this.price/4		
+			return  this.price.USA
 		}else if(currency === 'EUR'){
-			return  this.price/5
+			return  this.price.EURO
 		}
 	}
 }
@@ -39,22 +39,26 @@ const product1 = new Product ({
 	name: 'HP',
 	description: 'Laptop',
 	currency: 'USA',
-	price: 2500,
+	price: {USA: 200, EURO: 100},
 	weight: 1,
 	size: 'Medium',	
 });
 
 
 const product2 = new Product ({
-	id: '1',
+	id: '2',
 	name: 'Dell',
 	description: 'Computer',
 	currency: 'EUR',
-	price: 3500,
+	price: {USA: 300, EURO: 200},
 	weight: 2,
 	size: 'Big',	
 });
 
-product1.currency = 'USA';
+
+
+
 product1.price = product1.typeOfCurrency('USA');
+
+
 console.log(product1);
