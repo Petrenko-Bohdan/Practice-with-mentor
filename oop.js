@@ -101,66 +101,165 @@
 
 
 
+// class Product{
+// 	#id;
+// 	#name;
+// 	#price;
+// 	#description;
+
+// 	constructor(params){
+// 		this.#id = params.id;
+// 		this.#name = params.name;
+// 		this.#price = params.price;
+// 		this.#description = params.description;
+// 	}
+
+// 	getPrice(currency){
+// 	 currency = this.price
+// 		return this.#price = currency + ' $'
+// 	}
+
+// 	getInfo(){
+// 		return this.#description
+// 	}
+
+// 	get id(){
+// 		return this.#id
+// 	}
+// 	set id(value){
+// 		this.#id = value
+// 	}
+
+// 	get name(){
+// 		return this.#name
+// 	}
+// 	set name(value){
+// 		this.#name = value
+// 	}
+
+// 	get price(){
+// 		return this.#price
+// 	}
+// 	set price(value){
+// 		this.#price = value 
+// 	}
+
+// 	get description(){
+// 		return this.#description
+// 	}
+// 	set description(value){
+// 		this.#description = value
+// 	}
+
+// }
+
+// const phone = new Product({
+	
+// });
+
+// phone.description = 'Test'
+
+// phone.price = '1000'
+
+// console.log(phone.getInfo());
+
+// console.log(phone.getPrice());
+
+
+// Создать классы Laptop, Headphone, Monitor которые будут наследоваться от базового Product и расширять 
+// его свойствами характеристик  которые специфичны для каждого конкретного продукта(придумать самостоятельно).
+
+
+
 class Product{
-	#id;
-	#name;
-	#price;
-	#description;
+	id;
+	name;
+	price;
+	description;
 
 	constructor(params){
-		this.#id = params.id;
-		this.#name = params.name;
-		this.#price = params.price;
-		this.#description = params.description;
+		this.id = params.id;
+		this.name = params.name;
+		this.price = params.price;
+		this.description = params.description;
 	}
-
-	getPrice(currency){
-	 currency = this.price
-		return this.#price = currency + ' $'
-	}
-
-	getInfo(){
-		return this.#description
-	}
-
-	get id(){
-		return this.#id
-	}
-	set id(value){
-		this.#id = value
-	}
-
-	get name(){
-		return this.#name
-	}
-	set name(value){
-		this.#name = value
-	}
-
-	get price(){
-		return this.#price
-	}
-	set price(value){
-		this.#price = value 
-	}
-
-	get description(){
-		return this.#description
-	}
-	set description(value){
-		this.#description = value
-	}
-
 }
 
-const phone = new Product({
+
+class LaptopProduct extends Product {
+	Diagonal;
+
+	constructor (params){
+		super(params);
+		this.Diagonal = params.Diagonal;
+	}
+}
+
+class HeadphoneProduct extends Product {
 	
+	Color;
+
+	constructor(params){
+		super(params);
+		this.Color = params.Color;
+	}
+}
+
+class MonitorProduct extends LaptopProduct{
+	
+	Webcam;
+
+	constructor(params){
+		super(params);
+		this.Webcam = params.Webcam;
+	}
+}
+
+
+const product = new Product({
+	id: '1',
+	name: 'Samsung',
+	price: '1111',
+	description: "test 1",
+	Diagonal: 0,
+	Color: "White",
+	Webcam: true,
+})
+
+const Laptop = new LaptopProduct({
+	id: '2',
+	name: 'Dell',
+	price: '2222',
+	description: "test 2",
+	Diagonal: 15.6 ,
+	Color: "Black",
+	Webcam: false,
 });
 
-phone.description = 'Test'
+const Headphone = new HeadphoneProduct({
+	id: '3',
+	name: 'Xiaomi',
+	price: '33',
+	description: "test 3",
+	Diagonal: 2 ,
+	Color: "Black",
+	Webcam: true,
+});
 
-phone.price = '1000'
+const Monitor = new MonitorProduct({
+	id: '4',
+	name: 'MSI',
+	price: '444',
+	description: "test 4",
+	Diagonal: 20 ,
+	Color: "Black",
+	Webcam: true
+});
 
-console.log(phone.getInfo());
+console.log(product);
 
-console.log(phone.getPrice());
+console.log(Laptop);
+
+console.log(Headphone);
+
+console.log(Monitor);
