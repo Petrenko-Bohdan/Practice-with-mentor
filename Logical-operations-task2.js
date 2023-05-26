@@ -6,37 +6,41 @@
 
 
 
-// const user = [
-// 	{name:"user1", groups:['admins','team-leader','product-manager','moderators','content-manager','admins']},
-// 	{name:"user2", groups:['admins','team-leader','product-manager','moderators','content-manager','team-leader']},
-// 	{name:"user3", groups:['admins','team-leader','product-manager','moderators','content-manager','product-manager']},
-// 	{name:"user4", groups:['admins','team-leader','product-manager','moderators','content-manager','moderators']},
-// 	{name:"user5", groups:['admins','team-leader','product-manager','moderators','content-manager','content-manager']},
-// 	{name:"user6", groups:['admins','team-leader','product-manager','moderators','admins','team-leader']},
-// 	{name:"user6", groups:['admins','team-leader','product-manager','product-manager','content-manager','team-leader']},
-// ]
-
-// function unique(user){
-// 	for (let i = 0; i < user.length; i++) {
-// 		console.log(user[i].groups);
-// 	}
-// 	return Array.from(new Set(user));
-// }
-
-// console.log(unique(user));
-
-
-
-
-
-const user = {name:'user1', groups:['admins','team-leader','product-manager','moderators','content-manager','admins']}
-
+const user = [
+	{name:"user1", groups:['admins','team-leader','product-manager','moderators','content-manager','admins']},
+	{name:"user2", groups:['admins','team-leader','product-manager','moderators','content-manager','team-leader']},
+	{name:"user3", groups:['admins','team-leader','product-manager','moderators','content-manager','product-manager']},
+	{name:"user4", groups:['admins','team-leader','product-manager','moderators','content-manager','moderators']},
+	{name:"user5", groups:['admins','team-leader','product-manager','moderators','content-manager','content-manager']},
+	{name:"user6", groups:['admins','team-leader','product-manager','moderators','admins','team-leader']},
+	{name:"user6", groups:['admins','team-leader','product-manager','product-manager','content-manager','team-leader']},
+]
 
 function unique(user){
-	
-	return Array.from(new Set(user));
+	for (let i = 0; i < user.length; i++) {
+		const uniqueGrops = Array.from(new Set(user[i].groups))
+		user[i].groups = uniqueGrops
+		console.log(uniqueGrops);
+	}
 }
 
-console.log(unique(user.groups));
+unique(user);
+
+// console.log(user);
+
+
+
+
+
+// const user = {name:'user1', groups:['admins','team-leader','product-manager','moderators','content-manager','admins']}
+
+
+// function unique(user){
+	
+// 	user.groups=Array.from(new Set(user.groups));
+// }
+
+// unique(user);
+// console.log(user);
 
 

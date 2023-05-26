@@ -3,6 +3,23 @@
 // Добавить метод который позволяет получить в разных валютах. 
 // Тип валюта должен  передаваться аргументом (прим. ‘USD’, ‘EUR’, и т.п.). 
 
+
+// Для класса корзина реализовать такие методы как:
+
+// добавление продукта в корзину.
+
+// удаление продукта из корзины.
+
+// получение общей стоимости корзины без скидки.
+
+// получение цены со скидкой(условия скидки придумать самостоятельно).
+
+// получение стоимости доставки(условия придумать самостоятельно).
+
+// получение количества продуктов в корзине.
+
+// получение количества уникальных товаров в корзине. Так как  товары могут повторяться.
+
 // class Product {
 // 	id;
 // 	name;
@@ -43,6 +60,7 @@ class Cart {
 		price: 400,
 		weight: 1,
 		size: 'Medium/4',	
+		discont: 0.3,
 	},		
 	{
 		id: '1',
@@ -52,6 +70,17 @@ class Cart {
 		price: 400,
 		weight: 1,
 		size: 'Medium/4',	
+		discont: 0.2,
+	},
+	{
+		id: '1',
+		name: 'HP/4',
+		description: 'Laptop/4',
+		currency: 'USA',
+		price: 400,
+		weight: 1,
+		size: 'Medium/4',	
+		discont: 0.2,
 	},
 	{
 		id: '2',
@@ -61,6 +90,7 @@ class Cart {
 		price: 400,
 		weight: 1,
 		size: 'Medium/4',	
+		discont: 0.1,
 	},
 	{
 		id: '3',
@@ -70,6 +100,7 @@ class Cart {
 		price: 500,
 		weight: 1,
 		size: 'Medium/4',	
+		discont: 0.3,
 	},
 ];
 
@@ -94,11 +125,21 @@ class Cart {
 	};
 
 	totalPrice(){
+		this.getPrice(false)
+	}
+
+	totalPriceWithDiscont(){
+		this.getPrice(true)
+	}
+
+
+	getPrice(applyDiscont){
 		let total = 0;
 
 		for(let i=0; i<this.product.length; i++){
-			total += this.product.price[i];
+			total += this.product[i].discont && applyDiscont  ? this.product[i].price * this.product[i].discont : this.product[i].price;
 		}
+
 		console.log(total);
 	}
 
@@ -117,11 +158,13 @@ class Cart {
 
 
 	lengthuQiqueProductsInCart(){
-		for (let i=0; i< this.product; i++){
-			const filter=Array.from(new Set(this.product[i]))
-			// this.product[i]=filter
-			console.log(filter);
-		}		
+		const qiqueProducts = [];
+		for(let i=0; i<this.product.length; i++){
+			if (!qiqueProducts.includes(this.product[i].id)){
+				qiqueProducts.push(this.product[i].id)
+			}
+		}
+		console.log(qiqueProducts.length);
 	};
 
 
@@ -132,11 +175,14 @@ class Cart {
 
 const cart1 = new Cart({});
 
-cart1.totalPrice()
+cart1.totalPrice();
+cart1.totalPriceWithDiscont();
 
 cart1.lengthCart()
-console.log(cart1.lengthuQiqueProductsInCart());
-cart1.lengthuQiqueProductsInCart()
+// console.log(cart1.lengthuQiqueProductsInCart());
+
+cart1.lengthuQiqueProductsInCart();
+
 
 
 
@@ -150,11 +196,11 @@ cart1.addToCart({
 		size: 'Medium/3',	
 	})
 
-cart1.deliteFronBeginningCard();
+// cart1.deliteFronBeginningCard();
 
-cart1.deliteFronFinishCard();
+// cart1.deliteFronFinishCard();
 
-cart1.deliteFronIndexCard(3,2);
+// cart1.deliteFronIndexCard(3,2);
 
 
 

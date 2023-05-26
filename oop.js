@@ -16,20 +16,12 @@ class Product{
 		this._description = params.description;
 	}
 
-	getPrice(currency){
-	 currency = this.price
-		return this._price = currency + ' $'
+	getPrice(){
+		return this.price + ' $'
 	}
 
 	getInfo(){
 		return this._description
-	}
-
-	get id(){
-		return this._id
-	}
-	set id(value){
-		this._id = value
 	}
 
 	get name(){
@@ -73,221 +65,117 @@ console.log(phone.getPrice());
 
 
 
-// class Product{
-// 	id;
-// 	name;
-// 	price;
-// 	description;
 
-// 	constructor(params){
-// 		this.id = params.id;
-// 		this.name = params.name;
-// 		this.price = params.price;
-// 		this.description = params.description;
-// 	}
-// }
+class LaptopProduct extends Product {
+	Diagonal;
 
+	constructor (params){
+		super(params);
+		this.Diagonal = params.Diagonal;
+	}
 
-// class LaptopProduct extends Product {
-// 	Diagonal;
+	getInfo(){
+		return this.Diagonal
+	}
+}
 
-// 	constructor (params){
-// 		super(params);
-// 		this.Diagonal = params.Diagonal;
-// 	}
-// }
-
-// class HeadphoneProduct extends Product {
+class HeadphoneProduct extends Product {
 	
-// 	Color;
+	Color;
 
-// 	constructor(params){
-// 		super(params);
-// 		this.Color = params.Color;
-// 	}
-// }
+	constructor(params){
+		super(params);
+		this.Color = params.Color;
+	}
 
-// class MonitorProduct extends LaptopProduct{
+	getInfo(){
+		return this.Color
+	}
+}
+
+class MonitorProduct extends LaptopProduct{
 	
-// 	Webcam;
+	Webcam;
 
-// 	constructor(params){
-// 		super(params);
-// 		this.Webcam = params.Webcam;
-// 	}
-// }
+	constructor(params){
+		super(params);
+		this.Webcam = params.Webcam;
+	}
 
-
-// const product = new Product({
-// 	id: '1',
-// 	name: 'Samsung',
-// 	price: '1111',
-// 	description: "test 1",
-// 	Diagonal: 0,
-// 	Color: "White",
-// 	Webcam: true,
-// })
-
-// const Laptop = new LaptopProduct({
-// 	id: '2',
-// 	name: 'Dell',
-// 	price: '2222',
-// 	description: "test 2",
-// 	Diagonal: 15.6 ,
-// 	Color: "Black",
-// 	Webcam: false,
-// });
-
-// const Headphone = new HeadphoneProduct({
-// 	id: '3',
-// 	name: 'Xiaomi',
-// 	price: '33',
-// 	description: "test 3",
-// 	Diagonal: 2 ,
-// 	Color: "Black",
-// 	Webcam: true,
-// });
-
-// const Monitor = new MonitorProduct({
-// 	id: '4',
-// 	name: 'MSI',
-// 	price: '444',
-// 	description: "test 4",
-// 	Diagonal: 20 ,
-// 	Color: "Black",
-// 	Webcam: true
-// });
-
-// console.log(product);
-
-// console.log(Laptop);
-
-// console.log(Headphone);
-
-// console.log(Monitor);
+	getInfo(){
+		return `Webcam: ${this.Webcam}, Diagonal: ${this.Diagonal}`
+	}
+}
 
 
-// // Для Laptop, Headphone, Monitor переопределить метод getInfo и расширить
-// //  его информацией из свойства характеристик.
+const product = new Product({
+	id: '1',
+	name: 'Samsung',
+	price: '1111',
+	description: "test 1",
+	Diagonal: 0,
+	Color: "White",
+	Webcam: true,
+})
+
+const Laptop = new LaptopProduct({
+	id: '2',
+	name: 'Dell',
+	price: '2222',
+	description: "test 2",
+	Diagonal: 15.6 ,
+	Color: "Black",
+	Webcam: false,
+});
+
+const Headphone = new HeadphoneProduct({
+	id: '3',
+	name: 'Xiaomi',
+	price: '33',
+	description: "test 3",
+	Diagonal: 2 ,
+	Color: "Black",
+	Webcam: true,
+});
+
+const Monitor = new MonitorProduct({
+	id: '4',
+	name: 'MSI',
+	price: '444',
+	description: "test 4",
+	Diagonal: 20 ,
+	Color: "Black",
+	Webcam: true
+});
+
+console.log(product);
+
+console.log(Laptop);
+
+console.log(Headphone);
+
+console.log(Monitor);
 
 
-// class Product{
-// 	id;
-// 	name;
-// 	price;
-// 	description;
+// Для Laptop, Headphone, Monitor переопределить метод getInfo и расширить
+//  его информацией из свойства характеристик.
 
-// 	constructor(params){
-// 		this.id = params.id;
-// 		this.name = params.name;
-// 		this.price = params.price;
-// 		this.description = params.description;
-// 	}
+console.log(product);
 
-// 	getInfo(){
-// 		return this.description
-// 	}
-// }
+console.log(Laptop);
+
+console.log(Headphone);
+
+console.log(Monitor);
+
+console.log(product.getInfo());
+console.log(Laptop.getInfo());
+console.log(Headphone.getInfo());
+console.log(Monitor.getInfo());
 
 
-// class LaptopProduct extends Product {
-// 	Diagonal;
-
-// 	constructor (params){
-// 		super(params);
-// 		this.Diagonal = params.Diagonal;
-// 	}
-
-// 	getInfo(){
-// 		return this.Diagonal
-// 	}
-// }
-
-// class HeadphoneProduct extends Product {
-	
-// 	Color;
-
-// 	constructor(params){
-// 		super(params);
-// 		this.Color = params.Color;
-// 	}
-
-// 	getInfo(){
-// 		return this.Color
-// 	}
-// }
-
-// class MonitorProduct extends LaptopProduct{
-	
-// 	Webcam;
-
-// 	constructor(params){
-// 		super(params);
-// 		this.Webcam = params.Webcam;
-// 	}
-
-// 	getInfo(){
-// 		return this.Webcam
-// 	}
-// }
-
-
-// const product = new Product({
-// 	id: '1',
-// 	name: 'Samsung',
-// 	price: '1111',
-// 	description: "test 1",
-// 	Diagonal: 0,
-// 	Color: "White",
-// 	Webcam: true,
-// })
-
-// const Laptop = new LaptopProduct({
-// 	id: '2',
-// 	name: 'Dell',
-// 	price: '2222',
-// 	description: "test 2",
-// 	Diagonal: 15.6 ,
-// 	Color: "Black",
-// 	Webcam: false,
-// });
-
-// const Headphone = new HeadphoneProduct({
-// 	id: '3',
-// 	name: 'Xiaomi',
-// 	price: '33',
-// 	description: "test 3",
-// 	Diagonal: 2 ,
-// 	Color: "Black",
-// 	Webcam: true,
-// });
-
-// const Monitor = new MonitorProduct({
-// 	id: '4',
-// 	name: 'MSI',
-// 	price: '444',
-// 	description: "test 4",
-// 	Diagonal: 20 ,
-// 	Color: "Black",
-// 	Webcam: true
-// });
-
-// console.log(product);
-
-// console.log(Laptop);
-
-// console.log(Headphone);
-
-// console.log(Monitor);
-
-// console.log(product.getInfo());
-// console.log(Laptop.getInfo());
-// console.log(Headphone.getInfo());
-// console.log(Monitor.getInfo());
-
-
-// // Создать экземпляры дочерних классов и протестировать как работают геттеры и сеттеры, 
-// // методы getPrice и getInfo для каждого экземпляра класса. Результаты вывести в консоль.
+// Создать экземпляры дочерних классов и протестировать как работают геттеры и сеттеры, 
+// методы getPrice и getInfo для каждого экземпляра класса. Результаты вывести в консоль.
 
 
 // class Product{
